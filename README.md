@@ -1,0 +1,2 @@
+# Parazia
+Full serveur ParaziaRP
