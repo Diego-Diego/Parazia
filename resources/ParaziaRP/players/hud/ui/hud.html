@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="hud.css" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
+</head>
+    <body>
+        <div class="setting-box">
+            <h1 class="setting-tilte">PARAMETRES</h1>
+            <!-- <h2 class="tt-player">Joueur connecter :</h2>
+            <button id="player-btn"><i class="fa fa-check"></i></button>
+            <button id="player-btn2"><i class="fa fa-times"></i></button> -->
+
+            <h2 class="id-player">Votre ID :</h2>
+            <button id="id-btn"><i class="fa fa-check"></i></button>
+            <button id="id-btn2"><i class="fa fa-times"></i></button>
+
+            <h2 class="micro-player">Status micro :</h2>
+            <button id="micro-btn"><i class="fa fa-check"></i></button>
+            <button id="micro-btn2"><i class="fa fa-times"></i></button>
+
+            <h2 class="vital-player">Info vitale :</h2>
+            <button id="vital-btn"><i class="fa fa-check"></i></button>
+            <button id="vital-btn2"><i class="fa fa-times"></i></button>
+            
+            <h2 class="job-player">Job & Orga :</h2>
+            <button id="job-btn"><i class="fa fa-check"></i></button>
+            <button id="job-btn2"><i class="fa fa-times"></i></button>
+
+            <h2 class="money-player">Argent :</h2>
+            <button id="money-btn"><i class="fa fa-check"></i></button>
+            <button id="money-btn2"><i class="fa fa-times"></i></button>
+
+            <button id="close-btn">VALIDER</button>
+        </div>
+
+        <div class="job-box">
+            <div class="line"></div>
+            <img class="job-icon" src="img/job.png">
+            <span class="job"></span>
+            <img class="orga-icon" src="img/orga.png">
+            <span class="orga"></span>
+        </div>
+        <div class="money-box">
+            <div class="line"></div>
+            <img class="money-icon" src="img/money.png">
+            <span class="player-money"></span>
+            <span class="player-black"></span>
+            <img class="black-icon" src="img/black-money.png">
+        </div>
+        <!-- <div class="player-box">
+            <img class="player-icon" src="img/player.png">
+            <p class="player-count"></p>
+        </div> -->
+        <div class="id-box">
+            <img class="id-icon" src="img/id.png">
+            <p class="player-id"></p>
+        </div>
+        <div class="micro-back">
+            <img class="micro-icon" src="img/micro.png">
+            <img class="micro-icon2" src="img/micro2.png">
+        </div>
+        
+        <div class="container-prog">
+            <div class="food-progress">
+                <div class="value-food"></div>
+            </div>
+            <img id="food-icon" src="img/food-icon.png">
+
+            <div class="water-progress">
+                <div class="value-water"></div>
+            </div>
+            <img id="water-icon" src="img/water-icon.png">
+            <div class="health-progress">
+                <div class="value-health"></div>
+            </div>
+            <img id="health-icon" src="img/health-icon.png">
+            <div class="shield-progress">
+                <div class="value-shield"></div>
+            </div>
+            <img id="shield-icon" src="img/shield-icon.png">
+        </div>
+        <script src="app.js" type="text/javascript"></script>
+    </body>
+</html>
