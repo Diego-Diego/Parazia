@@ -1,0 +1,41 @@
+---@author Pablo Z.
+---@version 1.0
+--[[
+  This file is part of ParaziaRP.
+  
+  File [main] created at [18/04/2021 16:41]
+
+  Copyright (c) ParaziaRP - All Rights Reserved
+
+  Unauthorized using, copying, modifying and/or distributing of this file,
+  via any medium is strictly prohibited. This code is confidential.
+--]]
+
+ParaziaRPSCache.addCacheRule("ojapfood", "paraziarp_ojapfood", ParaziaRP.second(10))
+
+ParaziaRP.netHandle("esxloaded", function()
+    local npc = ParaziaRPSNpcsManager.createPublic("ig_milton", false, true, {coords = vector3(-172.369, 291.94, 93.76), heading = 280.0}, "WORLD_HUMAN_AA_SMOKE")
+    npc:setInvincible(true)
+    npc:setFloatingText("Bienvenue au O'Jap !", 3.5)
+
+    npc = ParaziaRPSNpcsManager.createPublic("ig_milton", false, true, {coords = vector3(-170.19, 289.68, 93.76), heading = 2.66}, "WORLD_HUMAN_CLIPBOARD_FACILITY")
+    npc:setInvincible(true)
+
+    npc = ParaziaRPSNpcsManager.createPublic("s_m_y_devinsec_01", false, true, {coords = vector3(-164.18, 299.62, 93.76), heading = 190.66}, "WORLD_HUMAN_GUARD_STAND_FACILITY")
+    npc:setInvincible(true)
+    npc:setFloatingText("~g~La zone à gauche est reservée au personnel.", 2.8)
+
+    ParaziaRPSBlipsManager.createPublic(vector3(-172.29, 293.83, 93.76), 766, 3, 0.8, "~q~Entreprise |~s~ O\'Jap", true)
+end)
+
+ParaziaRP.netRegisterAndHandle("ojapRequestItem", function(item)
+    local source = source
+    local xPlayer = ESX.GetPlayerFromId(source)
+    if xPlayer.getJob().name ~= "ojap" then
+        return
+    end
+    local itemsCache = ParaziaRPSCache.getCache("ojapfood")
+    if not itemsCache[item] then return end
+    xPlayer.addInventoryItem(itemsCache[item].item, 1)
+    ParaziaRPServerUtils.toClient("ojapCbItem", source)
+end)
