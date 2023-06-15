@@ -1,3 +1,5 @@
+local AeroEvent = TriggerServerEvent
+
 cfg_lscustom = {
 
 --Marker cfg_lscustom--
@@ -16,11 +18,11 @@ MarkerTourne = true, -- Si le marker tourne (true = oui, false = non)
 
 --cfg_lscustom Point--
 Position = {
-    Coffre = {vector3(-224.25, -1320.41, 30.89)}, -- Menu coffre 
-    GarageVehicule = {vector3(-178.01, -1327.48, 31.3)}, -- Menu Garage Vehicule
-    RangerVehicule = {vector3(-182.44, -1307.28, 31.3)}, -- Menu ranger votre véhicule
+    Coffre = {vector3(-317.22, -129.58, 39.02)}, -- Menu coffre 
+    GarageVehicule = {vector3(-359.39, -119.92, 38.7)}, -- Menu Garage Vehicule
+    RangerVehicule = {vector3(-360.09, -124.2, 38.7)}, -- Menu ranger votre véhicule
     FabricationKit = {vector3(-315.26, -124.42, 39.02)}, -- Menu Fabrication Kit
-    Vestiaire = {vector3(-210.06, -1338.41, 44.59)}, -- Menu Vestiaire
+    Vestiaire = {vector3(-341.57, -161.9, 44.59)}, -- Menu Vestiaire
 },
 
 

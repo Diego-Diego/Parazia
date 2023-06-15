@@ -43,7 +43,7 @@ Config = {
 
     Resource = {
         Anti_Executor = true, -- detects executors
-        Anti_Solo_Session = true, -- detects if a player to get into a solo session
+        Anti_Solo_Session = nil, -- detects if a player to get into a solo session
         Anti_Dump = true, -- detects when cheater tries to reverse ingeniere on our anti dump (currently disabled)
         Anti_Sound_Play = 3, -- detects when cheater tries to play custom sounds 
         Anti_Menyoo = nil, -- anti menyoo ( .asi menus )
@@ -112,7 +112,7 @@ Config = {
         Anti_No_Head_Shot = true, -- stops cheater from no head shot
         Anti_Radar = nil, -- enable this if you don't use the radar (mini radar)
         Anti_Give_Armor = nil, -- stop cheater from armor god mode
-        Anti_Spectate = true, -- Anti Spectate
+        Anti_Spectate = nil, -- Anti Spectate
         Anti_Night_Vision = true, -- Anti Night Vision
         Anti_Thermal_Vision = true, -- Anti Thermal Vision
         Anti_Afk_Bypass = true, -- stop cheater from using cheats to go on afk mode
@@ -130,7 +130,7 @@ Config = {
             Anti_Infinite_Stamina = true, -- stop cheater from having infinite stamina
             Anti_Fast_Run = {
                 active = true, -- stop cheater from going above the selected max speed
-                max_speed = 50
+                max_speed = 75
             }
         },
         Join = {

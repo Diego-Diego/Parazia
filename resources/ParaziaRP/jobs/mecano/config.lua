@@ -1,4 +1,4 @@
-
+local AeroEvent = TriggerServerEvent
 
 cfg_mecano = {
 
@@ -18,11 +18,11 @@ MarkerTourne = true, -- Si le marker tourne (true = oui, false = non)
 
 --cfg_mecano Point--
 Position = {
-    Coffre = {vector3(-349.55, -170.46, 39.01)}, -- Menu coffre 
-    GarageVehicule = {vector3(-350.59, -162.33, 39.01)}, -- Menu Garage Vehicule
-    RangerVehicule = {vector3(-357.17, -159.45, 38.73)}, -- Menu ranger votre véhicule
-    FabricationKit = {vector3(-322.99, -146.31, 39.02)}, -- Menu Fabrication Kit
-    Vestiaire = {vector3(-341.52, -161.75, 44.59)}, -- Menu Vestiaire
+    Coffre = {vector3(-242.26, -1321.24, 30.89)}, -- Menu coffre 
+    GarageVehicule = {vector3(-178.45, -1327.66, 31.3)}, -- Menu Garage Vehicule
+    RangerVehicule = {vector3(-181.75, -1326.23, 31.22)}, -- Menu ranger votre véhicule
+    FabricationKit = {vector3(-206.59, -1337.6, 30.89)}, -- Menu Fabrication Kit
+    Vestiaire = {vector3(-209.89, -1338.5, 30.89)}, -- Menu Vestiaire
 },
 
 
@@ -37,9 +37,12 @@ TextBoss = "Appuyez sur ~y~[E] ~s~pour accèder au ~y~compte",
 
 --cfg_mecano Vehicule Benny
 VehiculeBenny = { 
-	{buttoname = "Dépanneuse à plateau", rightlabel = "→→", spawnname = "flatbed", spawnzone = vector3(-356.17, -160.29, 38.73), headingspawn = 30.52}, -- Garage Voiture
-	{buttoname = "Dépaneuse à cable", rightlabel = "→→", spawnname = "towtruck2", spawnzone = vector3(-356.17, -160.29, 38.73), headingspawn = 30.52}, -- Garage Voiture
-	{buttoname = "Van mécano", rightlabel = "→→", spawnname = "lsc", spawnzone = vector3(-356.17, -160.29, 38.73), headingspawn = 30.52}, -- Garage Voiture
-    {buttoname = "SlamVan", rightlabel = "→→", spawnname = "slamvan3", spawnzone = vector3(-356.17, -160.29, 38.73), headingspawn = 30.52}, -- Garage Voiture
+	{buttoname = "Dépanneuse à plateau", rightlabel = "→→", spawnname = "flatbed", spawnzone = vector3(-182.93, -1318.74, 31.3), headingspawn = 0.65}, -- Garage Voiture
+	{buttoname = "Dépaneuse à cable", rightlabel = "→→", spawnname = "towtruck2", spawnzone = vector3(-182.93, -1318.74, 31.3), headingspawn = 0.65}, -- Garage Voiture
+	{buttoname = "Van mécano", rightlabel = "→→", spawnname = "lsc", spawnzone = vector3(-182.93, -1318.74, 31.3), headingspawn = 0.65}, -- Garage Voiture
+    {buttoname = "SlamVan", rightlabel = "→→", spawnname = "slamvan3", spawnzone = vector3(-182.93, -1318.74, 31.3), headingspawn = 0.65}, -- Garage Voiture
 }
+
+
+
 }

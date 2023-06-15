@@ -3,8 +3,6 @@ ESX = nil
 TriggerEvent('sova:KraKss0TEX0', function(obj) ESX = obj end)
 
 local PlayerData = {}
-local posGarageSortie = nil
-local HeadingSpawn = nil
 
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
@@ -513,26 +511,19 @@ function GarageBenny()
                 for k,v in pairs(cfg_mecano.VehiculeBenny) do
                 RageUI.Button(v.buttoname, nil, {RightLabel = "→→"}, true , {
                     onSelected = function()
-                        if ESX.GetPlayerData().job.name == "lscustom" then
-                            posGarageSortie = vector3(-183.05, -1320.35, 31.3)
-                            HeadingSpawn = 1.12
+                        if not ESX.Game.IsSpawnPointClear(vector3(v.spawnzone.x, v.spawnzone.y, v.spawnzone.z), 10.0) then
+                        ESX.ShowNotification("~g~Benny's\n~q~Point de spawn bloquée")
                         else
-                            posGarageSortie = vector3(v.spawnzone.x, v.spawnzone.y, v.spawnzone.z)
-                            HeadingSpawn = v.headingspawn
-                        end
-                        if not ESX.Game.IsSpawnPointClear(posGarageSortie, 10.0) then
-                            ESX.ShowNotification("~g~Benny's\n~q~Point de spawn bloquée")
-                        else
-                            local model = GetHashKey(v.spawnname)
-                            RequestModel(model)
-                            while not HasModelLoaded(model) do Wait(10) end
-                            local mecanoveh = CreateVehicle(model, posGarageSortie, HeadingSpawn, true, false)
-                            local newPlate = GenerateSocietyPlate('BENNYS')
-                            SetVehicleNumberPlateText(mecanoveh, newPlate)
-                            TriggerServerEvent('garage:RegisterNewKey', newPlate)
-                            SetVehicleFixed(mecanoveh)
-                            SetVehRadioStation(mecanoveh, 0)
-                            RageUI.CloseAll()
+                        local model = GetHashKey(v.spawnname)
+                        RequestModel(model)
+                        while not HasModelLoaded(model) do Wait(10) end
+                        local mecanoveh = CreateVehicle(model, v.spawnzone.x, v.spawnzone.y, v.spawnzone.z, v.headingspawn, true, false)
+                        local newPlate = GenerateSocietyPlate('BENNYS')
+                        SetVehicleNumberPlateText(mecanoveh, newPlate)
+                        TriggerServerEvent('garage:RegisterNewKey', newPlate)
+                        SetVehicleFixed(mecanoveh)
+                        SetVehRadioStation(mecanoveh, 0)
+                        RageUI.CloseAll()
                         end
                     end
                 })

@@ -1,18 +1,17 @@
-local PointSud = nil
+local PointNord = nil
 InitIllegalShop = false
-
 Citizen.CreateThread(function()
     while not ESXLoaded do Wait(1) end 
+    TriggerServerEvent('illegalshop:GetPoints')
     while not InitIllegalShop do 
         Wait(10)
     end
     while true do
         local isProche = false
-        local dist = Vdist2(GetEntityCoords(PlayerPedId(), false), PointSud)
-
+        local dist = Vdist2(GetEntityCoords(PlayerPedId(), false), PointNord)
         if dist < 250 then
             isProche = true
-            DrawMarker(25, PointSud.x, PointSud.y, PointSud.z-0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.55, 0.55, 0.55, 248,165,10, 255, false, false, 2, false, false, false, false)
+            DrawMarker(25, PointNord.x, PointNord.y, PointNord.z-0.98, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.55, 0.55, 0.55, 248,165,10, 255, false, false, 2, false, false, false, false)
         end
         if dist < 10 then
             ESX.ShowHelpNotification("~w~Appuyez sur ~INPUT_CONTEXT~ pour intéragir")
@@ -30,9 +29,9 @@ Citizen.CreateThread(function()
 end)
 
 RegisterNetEvent('illegalshop:ReceivePoints')
-AddEventHandler('illegalshop:ReceivePoints', function(sud)
+AddEventHandler('illegalshop:ReceivePoints', function(nord)
     InitIllegalShop = true
-    PointSud = sud
+    PointNord = nord
 end)
 
 function OpenIllegalShop()

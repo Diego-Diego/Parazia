@@ -81,7 +81,7 @@ Config.TimeOutMessages = {
 --------------------------------
 -- [Job]
 
-Config.JobChat = true
+Config.JobChat = false
 
 Config.JobCommand = 'jobc'
 
@@ -191,7 +191,7 @@ Config.AnnouncementMessageTitle = 'SERVER'
 --------------------------------
 -- [Advertisements]
 
-Config.EnableAdvertisementCommand = true
+Config.EnableAdvertisementCommand = false
 
 Config.AdvertisementCommand = 'ad'
 

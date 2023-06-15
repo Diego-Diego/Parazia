@@ -310,9 +310,9 @@ mSocietyCFG = {
         },
 
         {
-            pos = vector3(-194.92, -1335.87, 30.89),
+            pos = vector3(-340.59, -157.6, 44.59),
             name = "lscustom",
-            label = "Benny's",
+            label = "LSCustom",
             salary_max = 2500,
             options = {
                 money = true, 

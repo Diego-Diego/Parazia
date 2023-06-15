@@ -38,8 +38,11 @@ cfg_police = {
     {buttoname = "cursporter", disc = "Spesialisation TD", rightlabel = "→→", spawnname = "bmpos8", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
     {buttoname = "bus", disc = "Recuit", rightlabel = "→→", spawnname = "pbus", spawnzone = vector3(447.5346, -1020.3297, 28.4973), headingspawn = 270.174}, -- Garage Voiture
     {buttoname = "77%", disc = "Recuit", rightlabel = "→→", spawnname = "police2b", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
-     {buttoname = "police", disc = "Recuit", rightlabel = "→→", spawnname = "police", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
+    {buttoname = "police", disc = "Recuit", rightlabel = "→→", spawnname = "police", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
     {buttoname = "Dodge Chargeur", disc = "Spesialisation TD", rightlabel = "→→", spawnname = "sjcop1", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
+
+    {buttoname = "Buffalo sx", disc = "Spesialisation TD", rightlabel = "→→", spawnname = "trubuffalo", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
+    {buttoname = "Buffalo sx 2", disc = "Spesialisation TD", rightlabel = "→→", spawnname = "trubuffalo2", spawnzone = vector3(437.0840, -986.215, 25.69), headingspawn = 270.174}, -- Garage Voiture
 },
 
 HelicoPolice = { 
