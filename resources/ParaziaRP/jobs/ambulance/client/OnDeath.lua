@@ -60,14 +60,12 @@ AddEventHandler('esx:onPlayerDeath', function()
 						--ESX.showNotification('Signal envoyé !')
 					end
 				})
-				RageUI.Button('Réaparaitre', nil,  {RightBadge = RageUI.BadgeStyle.Tick}, IsTimeFinish, {
+				RageUI.Button('Réapparaître', nil,  {RightBadge = RageUI.BadgeStyle.Tick}, IsTimeFinish, {
 					onSelected = function()
 						TriggerServerEvent('ewen:RespawnHopital')
 						SetEntityRagdoll = false
 						SetEntityInvincible(PlayerPedId(), false)
-						--ESX.TriggerServerCallback('ewen:removeItemsAfterRPDeath', function()
-							--ESX.SetPlayerData('loadout', {})
-						--end)
+						ESX.TriggerServerCallback('ewen:removeItemsAfterRPDeath', function() end)
 						RageUI.CloseAll()
 					end
 				})

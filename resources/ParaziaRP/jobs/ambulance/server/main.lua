@@ -238,9 +238,24 @@ end)
 
 ESX.RegisterServerCallback('ewen:removeItemsAfterRPDeath', function(source, cb)
 	local xPlayer = ESX.GetPlayerFromId(source)
-	    for i=1, #xPlayer.loadout, 1 do
-		    xPlayer.removeWeapon(xPlayer.loadout[i].name)
-	    end
+
+    for i=1, #xPlayer.loadout, 1 do
+        if 
+        xPlayer.loadout[i].name == "weapon_switchblade" or
+        xPlayer.loadout[i].name == "weapon_machete" or
+        xPlayer.loadout[i].name == "WEAPON_SNSPISTOL" or
+        xPlayer.loadout[i].name == "WEAPON_PISTOL" or
+        xPlayer.loadout[i].name == "WEAPON_PISTOL50" or
+        xPlayer.loadout[i].name == "WEAPON_HEAVYPISTOL" or
+        xPlayer.loadout[i].name == "WEAPON_MACHINEPISTOL" or
+        xPlayer.loadout[i].name == "WEAPON_MICROSMG" or
+        xPlayer.loadout[i].name == "WEAPON_COMPACTRIFLE" or
+        xPlayer.loadout[i].name == "weapon_minismg"
+        then
+            xPlayer.removeWeapon(xPlayer.loadout[i].name)
+        end
+    end
+
 	cb()
 end)
 

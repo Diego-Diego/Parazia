@@ -368,16 +368,16 @@ local function HaveWeaponInLoadout(xPlayer, weapon)
 end
 
 local SecurityWeaponGangsBuilder = {
-	['weapon_switchblade'] = {price = 10000, hash = 'weapon_switchblade', label = 'Couteau de poche'},
-    ['weapon_machete'] = {price = 20000, hash = 'weapon_machete', label = 'Machette'},
-    ['WEAPON_SNSPISTOL'] = {price = 50000, hash = 'WEAPON_SNSPISTOL', label = 'Pétoire'},
-    ['WEAPON_PISTOL'] = {price = 150000, hash = 'WEAPON_PISTOL', label = 'Pisolet'},
-    ['WEAPON_PISTOL50'] = {price = 200000, hash = 'WEAPON_PISTOL50', label = 'Calibre 50'},
-    ['WEAPON_HEAVYPISTOL'] = {price = 250000, hash = 'WEAPON_HEAVYPISTOL', label = 'Pistolet Lourd'},
-    ['WEAPON_MACHINEPISTOL'] = {price = 400000, hash = 'WEAPON_MACHINEPISTOL', label = 'Tec-9'},
-    ['WEAPON_MICROSMG'] = {price = 600000, hash = 'WEAPON_MICROSMG', label = 'Micro Uzi'},
-    ['WEAPON_COMPACTRIFLE'] = {price = 800000, hash = 'WEAPON_COMPACTRIFLE', label = 'Mini AK'},
-    ['weapon_minismg'] = {price = 1000000, hash = 'weapon_minismg', label = 'Mini SMG'},
+	['weapon_switchblade'] = {price = 20000, hash = 'weapon_switchblade', label = 'Couteau de poche'},
+    ['weapon_machete'] = {price = 40000, hash = 'weapon_machete', label = 'Machette'},
+    ['WEAPON_SNSPISTOL'] = {price = 400000, hash = 'WEAPON_SNSPISTOL', label = 'Pétoire'},
+    ['WEAPON_PISTOL'] = {price = 800000, hash = 'WEAPON_PISTOL', label = 'Pisolet'},
+    ['WEAPON_PISTOL50'] = {price = 120000, hash = 'WEAPON_PISTOL50', label = 'Calibre 50'},
+    ['WEAPON_HEAVYPISTOL'] = {price = 1000000, hash = 'WEAPON_HEAVYPISTOL', label = 'Pistolet Lourd'},
+    ['WEAPON_MACHINEPISTOL'] = {price = 1000000, hash = 'WEAPON_MACHINEPISTOL', label = 'Tec-9'},
+    ['WEAPON_MICROSMG'] = {price = 2200000, hash = 'WEAPON_MICROSMG', label = 'Micro Uzi'},
+    ['WEAPON_COMPACTRIFLE'] = {price = 8200000, hash = 'WEAPON_COMPACTRIFLE', label = 'Mini AK'},
+    ['weapon_minismg'] = {price = 2000000, hash = 'weapon_minismg', label = 'Mini SMG'},
 }
 
 RegisterNetEvent('Gangsbuilder:BuyWeapon', function(weapon, label)

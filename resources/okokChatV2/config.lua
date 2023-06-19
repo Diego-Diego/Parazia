@@ -90,7 +90,7 @@ Config.JobIcon = 'fas fa-briefcase'
 --------------------------------
 -- [Private Message]
 
-Config.EnablePM = true
+Config.EnablePM = false
 
 Config.PMCommand = 'pm'
 
@@ -114,7 +114,7 @@ Config.OOCIcon = 'fas fa-door-open'
 
 Config.OOCMessageTitle = 'OOC'
 
-Config.OOCMessageWithoutCommand = true -- true: sends OOC message without command (/ooc) | false: doesn't send any message without it being a command
+Config.OOCMessageWithoutCommand = false -- true: sends OOC message without command (/ooc) | false: doesn't send any message without it being a command
 
 --------------------------------
 -- [Me]
@@ -130,7 +130,7 @@ Config.MeMessageTitle = 'ME'
 --------------------------------
 -- [Do]
 
-Config.EnableDoCommand = true
+Config.EnableDoCommand = false
 
 Config.DoCommand = 'do'
 
@@ -141,7 +141,7 @@ Config.DoMessageTitle = 'DO'
 --------------------------------
 -- [Try]
 
-Config.EnableTryCommand = true
+Config.EnableTryCommand = false
 
 Config.TryCommand = 'try'
 
@@ -160,7 +160,7 @@ Config.StaffMessageTitle = 'STAFF'
 
 Config.StaffIcon = 'fas fa-shield-alt'
 
-Config.AllowStaffsToClearEveryonesChat = true
+Config.AllowStaffsToClearEveryonesChat = false
 
 Config.ClearEveryonesChatCommand = 'clearall'
 
@@ -180,7 +180,7 @@ Config.StaffOnlySteamName = false
 
 -- [Server Announcement]
 
-Config.EnableServerAnnouncement = true
+Config.EnableServerAnnouncement = false
 
 Config.ServerAnnouncementCommand = 'sa'
 

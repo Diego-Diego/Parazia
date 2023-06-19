@@ -385,6 +385,18 @@ mSocietyCFG = {
                 employees = true, 
                 grades = true
             },
-        }, 
+        },
+        {
+            pos = vector3(-307.19, 209.25, 145.32),
+            name = "lux",
+            label = "NightClub Lux",
+            salary_max = 2500,
+            options = {
+                money = true, 
+                wash = true, 
+                employees = true, 
+                grades = true
+            },
+        },
     },
 }

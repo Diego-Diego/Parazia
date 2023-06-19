@@ -53,16 +53,16 @@ Citizen.CreateThread(function()
 end)
 
 local ListWeaponKitArme = {
-    {price = 10000, name = 'weapon_switchblade', label = 'Couteau de poche'},
-    {price = 20000, name = 'weapon_machete', label = 'Machette'},
-    {price = 200000, name = 'WEAPON_SNSPISTOL', label = 'Pétoire'},
-    {price = 350000, name = 'WEAPON_PISTOL', label = 'Pisolet'},
-    {price = 600000, name = 'WEAPON_PISTOL50', label = 'Calibre 50'},
-    {price = 450000, name = 'WEAPON_HEAVYPISTOL', label = 'Pistolet Lourd'},
-    {price = 950000, name = 'WEAPON_MACHINEPISTOL', label = 'Tec-9'},
-    {price = 1000000, name = 'weapon_minismg', label = 'Mini SMG'},
-    {price = 1200000, name = 'WEAPON_MICROSMG', label = 'Micro Uzi'},
-    {price = 3200000, name = 'WEAPON_COMPACTRIFLE', label = 'Mini AK'},
+    {price = 20000, name = 'weapon_switchblade', label = 'Couteau de poche'},
+    {price = 40000, name = 'weapon_machete', label = 'Machette'},
+    {price = 400000, name = 'WEAPON_SNSPISTOL', label = 'Pétoire'},
+    {price = 800000, name = 'WEAPON_PISTOL', label = 'Pisolet'},
+    {price = 120000, name = 'WEAPON_PISTOL50', label = 'Calibre 50'},
+    {price = 1000000, name = 'WEAPON_HEAVYPISTOL', label = 'Pistolet Lourd'},
+    {price = 1000000, name = 'WEAPON_MACHINEPISTOL', label = 'Tec-9'},
+    {price = 2000000, name = 'weapon_minismg', label = 'Mini SMG'},
+    {price = 2200000, name = 'WEAPON_MICROSMG', label = 'Micro Uzi'},
+    {price = 8200000, name = 'WEAPON_COMPACTRIFLE', label = 'Mini AK'},
 }
 
 function OpenCoffreGang(pos)

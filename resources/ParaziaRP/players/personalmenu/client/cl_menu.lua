@@ -106,7 +106,6 @@ openMenuF5 = function()
     local radio = RageUI.CreateSubMenu(mainf5, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
     local diversmenu = RageUI.CreateSubMenu(mainf5, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
     local pubs = RageUI.CreateSubMenu(mainf5, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
-    local anims = RageUI.CreateSubMenu(mainf5, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
 
     local actioninventory = RageUI.CreateSubMenu(invetory, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
     local gestion = RageUI.CreateSubMenu(mainf5, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
@@ -115,18 +114,6 @@ openMenuF5 = function()
     local billingmenu = RageUI.CreateSubMenu(portefeuille, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
     local actionweapon = RageUI.CreateSubMenu(invetory, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
     local gestionlicense = RageUI.CreateSubMenu(portefeuille, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
-    local walk = RageUI.CreateSubMenu(anims, "", "~q~Démarches")
-    local sexe = RageUI.CreateSubMenu(anims, " ", "~q~+21")
-    local danse = RageUI.CreateSubMenu(anims, " ", "~q~Danses")
-    local poses = RageUI.CreateSubMenu(anims,"","~q~Poses")
-    local sit = RageUI.CreateSubMenu(anims,"","~q~S'asseoir/Tomber")
-    local works = RageUI.CreateSubMenu(anims,"","~q~Métier")
-    local gang = RageUI.CreateSubMenu(anims,"","~q~Gang")
-    local sport = RageUI.CreateSubMenu(anims,"","~q~Sport")
-    local frap = RageUI.CreateSubMenu(anims,'', "~q~ Frapper ") 
-    local actions = RageUI.CreateSubMenu(anims,'', "~q~ Actions ") 
-    local salue = RageUI.CreateSubMenu(anims,"", "~q~Salue")
-    local props = RageUI.CreateSubMenu(anims , "", "~q~Emote disponible")
     local info = RageUI.CreateSubMenu(diversmenu, "", " ID : ["..GetPlayerServerId(PlayerId()).."]")
     mainf5.Closed = function()end 
     radio.EnableMouse = true
@@ -155,7 +142,12 @@ openMenuF5 = function()
 
             RageUI.Button("Vêtements", "Actions sur vos vêtements", {LeftBadge = RageUI.BadgeStyle.Star}, true, {}, vetmenu)
 
-            RageUI.Button("Animation", nil, {LeftBadge = RageUI.BadgeStyle.Star}, true, {}, anims)
+            RageUI.Button("Animation", nil, {LeftBadge = RageUI.BadgeStyle.Star}, true, {
+                onSelected = function()
+                    RageUI.CloseAll()
+                    ExecuteCommand("emotemenu")
+                end
+            })
 
             if ESX.PlayerData.job.grade_name == "boss" or ESX.PlayerData.job2.grade_name == "boss" then
                 RageUI.Button("Gestion", nil, {LeftBadge = RageUI.BadgeStyle.Star}, true, {}, gestion)
@@ -1287,254 +1279,6 @@ openMenuF5 = function()
         end, function()
         end)
 
-        RageUI.IsVisible(anims, function()
-            RageUI.Button("Emotes avec objet", false, {RightLabel = ">"}, true , {}, props)
-            RageUI.Button("Les démarches", false , {RightLabel = ">"} , true , {}, walk)
-            RageUI.Button("Danses", false , {RightLabel = ">"} , true , {}, danse)
-            RageUI.Button("Action", false , {RightLabel = ">"} , true , {}, actions)
-            RageUI.Button("Salue", false , {RightLabel = ">"} , true , {}, salue)
-            RageUI.Button("S'asseoir/Tomber", false , {RightLabel = ">"} , true , {}, sit)
-            RageUI.Button("Poses", false , {RightLabel = ">"} , true , {}, poses)
-            RageUI.Button("Frapper", false , {RightLabel = ">"} , true , {}, frap)
-            RageUI.Button("Sport", false , {RightLabel = ">"} , true , {}, sport)
-            RageUI.Button("Métier", false , {RightLabel = ">"} , true , {}, works)
-            RageUI.Button("Gang", false , {RightLabel = ">"} , true , {}, gang)
-            RageUI.Button("+21", false , {RightLabel = ">"} , true , {}, sexe)
-        end)
-
-        RageUI.IsVisible(props,function()
-            for kCat, vCat in pairs(PropsEmote) do
-                for k, v in pairs(vCat.simple) do
-                    if v.name == "Faite pleuvoir" or v.name == "Caméra" or v.name  == "Spray au champagne"then 
-                    
-                        renderanimonePtfs(v.name,v.command ,v.value, v.anim,v.loop,v.Prop,v.PropBone, v.PropPlacement,v.PtfxName,v.PtfxAsset,v.PtfxPlacement)
-                    else
-                        
-                        renderanimoneprops(v.name,v.command ,v.value, v.anim,v.loop,v.Prop,v.PropBone, v.PropPlacement)
-                    end
-                end
-            end
-        end)
-
-        RageUI.IsVisible(sexe,function()
-            for k, v in pairs(Sexe) do
-                renderanim(v.name,v.command ,v.value, v.anim,v.loop)
-            end
-        end)
-
-        RageUI.IsVisible(walk,function()
-            for k, v in pairs(Walk) do
-                renderwalk(v.label,v.value)
-            end
-
-        end)
-
-        RageUI.IsVisible(actions,function()
-            for kCat, vCat in pairs(Actions) do
-                RageUI.Separator(vCat.type)
-                for vAct, vAct in pairs(vCat.actions) do
-                    if vAct.Prop ~= nil then
-                        renderanimoneprops(vAct.name,vAct.command ,vAct.value, vAct.anim,vAct.loop,vAct.Prop,vAct.PropBone,vAct.PropPlacement)
-                    else
-                        renderanim(vAct.name,vAct.command, vAct.value,vAct.anim, vAct.loop)
-                    end
-                end
-            end
-        end)
-
-        RageUI.IsVisible(salue,function()
-            for kCat, vCat in pairs(Salue) do
-                RageUI.Separator(vCat.type)
-                for vSal, vSal in pairs(vCat.salue) do
-                    renderanim(vSal.name,vSal.command,vSal.value,vSal.anim, vSal.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(frap,function()
-            for kCat, vCat in pairs(Frapper) do
-                RageUI.Separator(vCat.type)
-                for vFrap, vFrap in pairs(vCat.frapper) do
-                    renderanim(vFrap.name,vFrap.command,vFrap.value,vFrap.anim, vFrap.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(danse,function()
-            for kCat, vCat in pairs(Musique) do
-                RageUI.Separator(vCat.Inst)
-
-                for kInstr, vInstr in pairs(vCat.instruments) do
-                    if vInstr.name == "Guitare" or vInstr.name == "Guitare 2" or vInstr.name == "Guitare électrique" or vInstr.name == "Guitare électrique 2" then 
-                        renderanimoneprops(vInstr.name,vInstr.command ,vInstr.value, vInstr.anim,vInstr.loop,vInstr.Prop,vInstr.PropBone,vInstr.PropPlacement)
-
-                    else
-                        renderanim(vInstr.name,vInstr.command,vInstr.value,vInstr.anim, vInstr.loop)
-                    end
-                end
-                RageUI.Separator(vCat.type)
-                for kDanse, vDanse in pairs(vCat.danses) do
-                    renderanim(vDanse.name,vDanse.command,vDanse.value,vDanse.anim, vDanse.loop)
-                end
-                RageUI.Separator(vCat.type2)
-                for kDanse, vDanse in pairs(vCat.dansesf) do
-                    renderanim(vDanse.name,vDanse.command,vDanse.value,vDanse.anim, vDanse.loop)
-                end
-                RageUI.Separator(vCat.type10)
-                for kDanseH, vDanseH in pairs(vCat.horseDanse) do
-                    renderanimoneprops(vDanseH.name,vDanseH.command ,vDanseH.value, vDanseH.anim,vDanseH.loop,vDanseH.Prop,vDanseH.PropBone,vDanseH.PropPlacement)
-                end
-                RageUI.Separator(vCat.type11)
-                for kDanseGl, vDanseGl in pairs(vCat.glowstickdanse) do
-                    renderanimtwoprops(vDanseGl.name,vDanseGl.command ,vDanseGl.value, vDanseGl.anim,vDanseGl.loop,vDanseGl.Prop,vDanseGl.PropBone,vDanseGl.PropPlacement,vDanseGl.SecondProp,vDanseGl.SecondPropBone,vDanseGl.SecondPropPlacement)
-                end
-                RageUI.Separator(vCat.type3)
-                for kDanselente, vDanselente in pairs(vCat.danseslente) do
-                    renderanim(vDanselente.name,vDanselente.command,vDanselente.value,vDanselente.anim, vDanselente.loop)
-                end
-                RageUI.Separator(vCat.type4)
-                for kDanseidiot, vDanseidiot in pairs(vCat.dansesidiot) do
-                    renderanim(vDanseidiot.name,vDanseidiot.command,vDanseidiot.value,vDanseidiot.anim, vDanseidiot.loop)
-                end
-                RageUI.Separator(vCat.type5)
-                for kDansetimide, vDansetimide in pairs(vCat.dansestimide) do
-                    renderanim(vDansetimide.name,vDansetimide.command,vDansetimide.value,vDansetimide.anim, vDansetimide.loop)
-                end
-                RageUI.Separator(vCat.type6)
-                for kDansehaut,vDansehaut in pairs(vCat.danseshaut) do 
-                    renderanim(vDansehaut.name,vDansehaut.command,vDansehaut.value,vDansehaut.anim,vDansehaut.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(poses,function()
-            for kCat, vCat in pairs(Poses) do
-                RageUI.Separator(vCat.type)
-                for kBC, vBC in pairs(vCat.brascroise) do
-                    renderanim(vBC.name,vBC.command,vBC.value,vBC.anim,vBC.loop)
-                end
-                RageUI.Separator(vCat.type2)
-                for kIna, vIna in pairs(vCat.inactif) do
-                    renderanim(vIna.name,vIna.command,vIna.value,vIna.anim,vIna.loop)
-                end
-                RageUI.Separator(vCat.type3)
-                for kWait, vWait in pairs(vCat.wait) do
-                    renderanim(vWait.name,vWait.command,vWait.value,vWait.anim,vWait.loop)
-                end
-                RageUI.Separator(vCat.type4)
-                for kPens, vPens in pairs(vCat.penser) do
-                    renderanim(vPens.name,vPens.command,vPens.value,vPens.anim,vPens.loop)
-                end
-                
-                RageUI.Separator(vCat.type40)
-                for kP, vP in pairs(vCat.ppp) do
-                    renderanim(vP.name,vP.command,vP.value,vP.anim,vP.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(sit,function()
-            for kCat, vCat in pairs(Sits) do
-                RageUI.Separator(vCat.type)
-                for kSit, vSit in pairs(vCat.sits) do
-                    if vSit.name == "S'asseoir sur une chaise " then 
-                        renderscenario(vSit.name,vSit.command,vSit.scenario)
-                    else
-                        renderanim(vSit.name,vSit.command,vSit.value,vSit.anim,vSit.loop)
-                    end
-                end
-                RageUI.Separator(vCat.type2)
-                for kFall, vFall in pairs(vCat.tomber) do
-                    renderanim(vFall.name,vFall.command,vFall.value,vFall.anim,vFall.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(works,function()
-            for kCat, vCat in pairs(Works) do
-                RageUI.Separator(vCat.type)
-                for kCops, vCops in pairs(vCat.cops) do
-                    if vCops.name == "Mains sur la ceinture"  then
-                        renderscenario2(vCops.name,vCops.command,vCops.scenario)
-                    elseif vCops.name == "Circulation" then 
-                        renderscenario2(vCops.name,vCops.command,vCops.scenario)
-                    elseif vCops.name == "Garde" then 
-                        renderscenario2(vCops.name,vCops.command,vCops.scenario)
-                    elseif vCops.name == "Balise de flic" then 
-                        renderscenario2(vCops.name,vCops.command,vCops.scenario)
-                    elseif vCops.name == "Presse-papiers"  then 
-                        renderscenario2(vCops.name,vCops.command,vCops.scenario)
-                    elseif vCops.name == "Jumelle" then
-                        renderscenario2(vCops.name,vCops.command,vCops.scenario) 
-                    elseif vCops.name == "Presse-papiers 2" then 
-                        renderanimoneprops(vCops.name,vCops.command ,vCops.value, vCops.anim,vCops.loop,vCops.Prop,vCops.PropBone, vCops.PropPlacement)
-                    elseif vCops.name == "Bloc-notes" then 
-                        renderanimtwoprops(vCops.name,vCops.command ,vCops.value, vCops.anim,vCops.loop,vCops.Prop,vCops.PropBone, vCops.PropPlacement, vCops.SecondProp,vCops.SecondPropBone,vCops.SecondPropPlacement)
-                    else
-                        renderanim(vCops.name,vCops.command,vCops.value,vCops.anim,vCops.loop)
-                    end
-                end
-                RageUI.Separator(vCat.type2)
-                for kMeca, vMeca in pairs(vCat.mechanic) do
-                    if vMeca.name == "Nettoyer" then 
-                        renderanimoneprops(vMeca.name,vMeca.command ,vMeca.value, vMeca.anim,vMeca.loop,vMeca.Prop,vMeca.PropBone, vMeca.PropPlacement)
-
-                    elseif vMeca.name == "Nettoyer 2" then 
-                        renderanimoneprops(vMeca.name,vMeca.command ,vMeca.value, vMeca.anim,vMeca.loop,vMeca.Prop,vMeca.PropBone, vMeca.PropPlacement)
-                    else
-                        renderanim(vMeca.name,vMeca.command,vMeca.value,vMeca.anim,vMeca.loop)
-                    end
-                end
-                RageUI.Separator(vCat.type3)
-                for kEms, vEms in pairs(vCat.ems) do
-                    renderanim(vEms.name,vEms.command,vEms.value,vEms.anim,vEms.loop)
-                end
-                RageUI.Separator(vCat.type4)
-                for kDj, vDj in pairs(vCat.dj) do
-                    renderanim(vDj.name,vDj.command,vDj.value,vDj.anim,vDj.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(gang,function()					
-            for kCat, vCat in pairs(Gang) do
-                RageUI.Separator(vCat.type)
-                for kGang, vGang in pairs(vCat.gang) do
-                    renderanim(vGang.name,vGang.command,vGang.value,vGang.anim,vGang.loop)
-                end
-            end
-        end)
-
-        RageUI.IsVisible(sport,function()			
-            for kCat, vCat in pairs(Sport) do
-                RageUI.Separator(vCat.type)
-                for kBoxe, vBoxe in pairs(vCat.box) do
-                    renderanim(vBoxe.name,vBoxe.command,vBoxe.value,vBoxe.anim,vBoxe.loop)
-                end
-                RageUI.Separator(vCat.type4)
-                for kTK, vTK in pairs(vCat.karate) do
-                    renderanim(vTK.name,vTK.command,vTK.value,vTK.anim,vTK.loop)
-                end
-                RageUI.Separator(vCat.type2)
-                for kGolf, vGolf in pairs(vCat.golf) do
-                    renderanim(vGolf.name,vGolf.command,vGolf.value,vGolf.anim,vGolf.loop)
-                end
-                RageUI.Separator(vCat.type3)
-                for kJog, vJog in pairs(vCat.jog) do
-                    if vJog.name == "Jogging" then 
-                        renderscenario2(vJog.name,vJog.command,vJog.scenario)
-                    else
-                        renderanim(vJog.name,vJog.command,vJog.value,vJog.anim,vJog.loop)
-                    end
-                end
-                RageUI.Separator(vCat.type10)
-                for kEti, vEti in pairs(vCat.etirement) do
-                    renderanim(vEti.name,vEti.command,vEti.value,vEti.anim,vEti.loop)
-                end
-
-            end
-        end)
-
         if not RageUI.Visible(mainf5) and 
         not RageUI.Visible(info) and
         not RageUI.Visible(invetory) and 
@@ -1553,18 +1297,7 @@ openMenuF5 = function()
         not RageUI.Visible(actionweapon) and 
         not RageUI.Visible(gestionlicense) and
         not RageUI.Visible(anims) and
-        not RageUI.Visible(walk) and
-        not RageUI.Visible(sexe) and
-        not RageUI.Visible(danse) and
-        not RageUI.Visible(poses) and
-        not RageUI.Visible(sit) and
-        not RageUI.Visible(works) and
-        not RageUI.Visible(gang) and
-        not RageUI.Visible(sport) and
-        not RageUI.Visible(frap) and
-        not RageUI.Visible(actions) and
-        not RageUI.Visible(salue) and
-        not RageUI.Visible(props) then 
+        not RageUI.Visible(props) then
             mainf5 = RMenu:DeleteType("mainf5")
         end
     end

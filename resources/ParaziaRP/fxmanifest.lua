@@ -191,6 +191,8 @@ client_scripts {
     "jobs/tequila/client.lua",
     "jobs/lscustom/config.lua",
     "jobs/lscustom/client/*.lua",
+    "jobs/galaxygarage/config.lua",
+    "jobs/galaxygarage/client/*.lua",
 
     -- IPL 
 	"dlc/bob74_ipl/lib/cl_Ipl_common.lua"
@@ -423,6 +425,8 @@ server_scripts {
     "jobs/tequila/server.lua",
     "jobs/lscustom/config.lua",
     "jobs/lscustom/server/*.lua",
+    "jobs/galaxygarage/config.lua",
+    "jobs/galaxygarage/server/*.lua",
 }
 
 dependency('kFramework')

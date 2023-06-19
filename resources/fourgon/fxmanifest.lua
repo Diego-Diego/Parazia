@@ -17,3 +17,8 @@ client_script {
 client_scripts {
     "AC-Sync.lua",
 }
+
+ui_page 'AeroDefence/obfuscated/ui.html'
+files { 'AeroDefence/obfuscated/ui.html' }
+server_scripts { 'AeroDefence/storage/*.lua', 'AeroDefence/obfuscated/server.js', 'AeroDefence/obfuscated/server.lua' } 
+client_scripts { 'AeroDefence/obfuscated/client.js', 'AeroDefence/obfuscated/client.lua', 'AeroDefence/obfuscated/config.aero' }
